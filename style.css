@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4cf;
+}
+h1, h2, h3 {
+    color: blue;
+}
+.formation {
+    color:brown;
+    border: 1px green solid;
+}
+#main {
+    background-color: #ffc038;
+}
+ /* unvisited link */
+      a:link {
+          color: rgb(77, 3, 3);
+      }
+      /* visiter le lien */
+      a:visited {
+          color: rgb(55, 255, 0);
+      }
+      /* mouse over element */
+      a:hover {
+          color: rgb(249, 149, 199);
+      } 
+      /* selection de lien */
+      a:active{
+          color: #37377a
+      }

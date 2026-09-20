@@ -1,0 +1,199 @@
+/* Style global */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Barre supérieure */
+.top-bar {
+  background: #333435;
+  color: #fff;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.top-bar .social-icons a {
+  color: #fff;
+  margin-left: 10px;
+  text-decoration: none;
+
+}
+
+/* Navigation */
+nav {
+  background: #fff;
+}
+
+.logo img {
+  height: 60px;
+  margin: 10px 20px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #0a2a4d;
+  font-weight: bold;
+}
+
+/* Section Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
+  background: #060442;
+}
+
+/* pour justifier tout les paragraphes du site */
+/*p {
+  text-align:justify;
+  font-style:italic;
+}*/
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero-text h1 {
+  color: #ffffff;
+  /* font-style: bold; */
+  font-weight: 800; 
+}
+
+.hero-text p {
+  margin: 20px 0;
+  color: #ffffff;
+  opacity: 0.8;           
+}
+
+.buttons .btn {
+  padding: 10px 20px;
+  margin-right: 10px;
+  text-decoration: none;
+  /* border-radius: 4px; */
+}
+
+.btn.primary {
+  background: #f36f21;
+  color: #fff;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border: 1px solid #fff;
+}
+
+.btn.secondary {
+  background: none;
+  color: #fff;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border: 1px solid #fff;
+
+}
+
+/* Image Hero */
+.hero-image img {
+  max-width: 500px;
+  /* border-radius: 8px; */
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+/* Opportunités */
+.opportunities {
+  /*text-align: center;*/
+  padding: 40px 20px;
+}
+
+.opportunities h5 {
+  color: #f36f21;
+  /*display: flex;*/
+}
+
+.opportunities p {
+  font-weight: 900;
+  font-size: 30px;
+}
+
+
+/* Cartes Opportunités */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-body h3 {
+  color: #0a2a4d;
+  margin: 10px 0;
+}
+
+.card-body p {
+  margin: 5px 0;
+}
+
+.card-body .price {
+  color: #f36f21;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.card-body .label {
+  display: inline-block;
+  background: #0a2a4d;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* Pied de page */
+footer {
+  background: #0a2a4d;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+}
