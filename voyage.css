@@ -1,0 +1,60 @@
+/* Style général */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Section Héros avec overlay */
+header {
+  position: relative;
+  color: white;
+}
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); /* assombrit l’image */
+}
+header h1, header p, header a {
+  position: relative;
+  z-index: 1;
+}
+
+/* Cartes Destinations */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Accordéon */
+.accordion-button {
+  font-weight: bold;
+}
+.accordion-button:not(.collapsed) {
+  background-color: #0d6efd;
+  color: white;
+}
+
+/* Formulaire */
+form .form-control {
+  border-radius: 8px;
+}
+form button {
+  border-radius: 8px;
+}
+
+/* Pied de page */
+footer {
+  background: #222;
+}
+footer i {
+  margin: 0 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+footer i:hover {
+  color: #0d6efd;
+}
