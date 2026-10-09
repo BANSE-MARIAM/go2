@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'ADDICT</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="resto.css">
+    <style>
+      .card-img-top {
+        height: 250px;       /* ajuste la hauteur selon ton design */
+        object-fit: cover;   /* recadre l’image sans la déformer */
+        width: 100%;         /* force la largeur à occuper toute la carte */
+      }
+    </style>
+
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<body>
+
+ <!--En-tête -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">L'ADDICT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!--Section Héros -->
+    <header class="bg-dark text-white text-center py-5" style="background:url('plat.jpg') center/cover no-repeat;">
+    <h1>Bienvenue chez L'ADDICT</h1>
+    <a href="#menu" class="btn btn-primary mt-3">Voir le menu</a>
+    </header>
+
+
+<!--Section Menu grille Bootstrap -->
+<section id="menu" class="container py-5">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="c:\Users\Muse6\Downloads\Pizza-margherita.png" class="card-img-top" alt="Plat 1">
+        <div class="card-body">
+          <h5 class="card-title">Pizza Margherita</h5>
+          <p class="card-text">Tomates fraîches, mozzarella, basilic.</p>
+          <p class="fw-bold">10 €</p>
+        </div>
+      </div>
+    </div>
+<div class="col-md-4">
+  <div class="card">
+    <img src="c:\Users\Muse6\Downloads\800-1.jpg" class="card-img-top" alt="Plat 2">
+    <div class="card-body">
+      <h5 class="card-title">Pizza Royale</h5>
+      <p class="card-text">Tomates fraîches, mozzarella, basilic.</p>
+      <p class="fw-bold">12 €</p>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="card">
+    <img src="c:\Users\Muse6\Downloads\b5ac1751d78c8688321461601e57.png" class="card-img-top" alt="Plat 3">
+    <div class="card-body">
+      <h5 class="card-title">Pizza 4 Saisons</h5>
+      <p class="card-text">Tomates fraîches, mozzarella, basilic.</p>
+      <p class="fw-bold">13 €</p>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!--Section À propos -->
+<section class="container py-5">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="c:\Users\Muse6\Downloads\https___www.ahstatic.com_photos_1400_rsr002_00_p_3000x2250.webp" class="img-fluid" alt="Restaurant">
+    </div>
+    <div class="col-md-6">
+      <p>Notre restaurant propose des plats faits maison avec des ingrédients frais...
+        On vous invite à découvrir une carte à la fois simple et savoureuse. Venez déguster nos plats préparés avec soin, à partir d'ingrédients frais. L'atmosphère chaleureuse et conviviale vous fera sentir comme chez vous. 
+      </p>
+    </div>
+  </div>
+</section>
+
+<!--Section Contact -->
+<section class="container py-5">
+  <form>
+    <div class="mb-3">
+      <label>Nom</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label>Message</label>
+      <textarea class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+</section>
+
+<footer class="bg-dark text-white text-center py-3">
+  <p>&copy; 2026 L'ADDICT</p>
+  <i class="bi bi-facebook"></i> <i class="bi bi-instagram"></i>
+</footer>
+
+
+</body>
