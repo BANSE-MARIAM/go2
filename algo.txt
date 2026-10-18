@@ -1,0 +1,24 @@
+Début
+    Lire la phrase caractère par caractère
+    Initialiser longueur ← 0
+    Initialiser mots ← 1      // car le premier mot commence sans espace
+    Initialiser voyelles ← 0
+
+    Tant que caractère ≠ '.'
+        longueur ← longueur + 1
+
+        Si caractère = ' ' alors
+            mots ← mots + 1
+        FinSi
+
+        Si caractère ∈ {a, e, i, o, u, y, A, E, I, O, U, Y} alors
+            voyelles ← voyelles + 1
+        FinSi
+
+        Lire caractère suivant
+    FinTantQue
+
+    Afficher "Longueur de la phrase = ", longueur
+    Afficher "Nombre de mots = ", mots
+    Afficher "Nombre de voyelles = ", voyelles
+Fin
