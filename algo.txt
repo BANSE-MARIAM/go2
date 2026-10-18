@@ -22,3 +22,4 @@ Début
     Afficher "Nombre de mots = ", mots
     Afficher "Nombre de voyelles = ", voyelles
 Fin
+ 

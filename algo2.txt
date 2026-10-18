@@ -1,0 +1,71 @@
+Problème 1
+
+Début
+    Ensemble1 ← [3, 1, 7, 9]
+    Ensemble2 ← [2, 4, 1, 9, 3]
+    somme ← 0
+
+    // Vérifier les éléments du premier ensemble
+    Pour i de 0 à longueur(Ensemble1)-1
+        élément ← Ensemble1[i]
+        Si élément n'est pas dans Ensemble2
+            somme ← somme + élément
+        FinSi
+    FinPour
+
+    // Vérifier les éléments du deuxième ensemble
+    Pour j de 0 à longueur(Ensemble2)-1
+        élément ← Ensemble2[j]
+        Si élément n'est pas dans Ensemble1
+            somme ← somme + élément
+        FinSi
+    FinPour
+
+    Afficher "Somme des éléments distincts = ", somme
+Fin
+
+Problème 2 : Produit scalaire et orthogonalité
+
+Étape 1 : Procédure 
+Procédure dot_product(v1, v2, ps)
+    ps ← 0
+    Pour i de 0 à longueur(v1)-1
+        ps ← ps + v1[i] * v2[i]
+    FinPour
+FinProcédure
+
+Étape 2 : Vérifier l’orthogonalité pour n paires de vecteurs
+
+Début
+    Lire n
+    Pour k de 1 à n
+        Lire vecteur v1
+        Lire vecteur v2
+        Appeler dot_product(v1, v2, ps)
+
+        Si ps = 0 alors
+            Afficher "Les vecteurs ", k, " sont orthogonaux"
+        Sinon
+            Afficher "Les vecteurs ", k, " ne sont pas orthogonaux"
+        FinSi
+    FinPour
+Fin
+
+Variante avec une fonction au lieu d’une procédure
+
+Fonction dot_product(v1, v2)
+    ps ← 0
+    Pour i de 0 à longueur(v1)-1
+        ps ← ps + v1[i] * v2[i]
+    FinPour
+    Retourner ps
+FinFonction
+
+Puis dans l’algorithme principal 
+
+ps ← dot_product(v1, v2)
+Si ps = 0 alors
+    Afficher "Orthogonaux"
+Sinon
+    Afficher "Non orthogonaux"
+FinSi
