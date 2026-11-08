@@ -1,0 +1,394 @@
+/* =========================
+   STYLE GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+    color: #333;
+    padding: 30px;
+}
+
+
+/* =========================
+   EN-TETE
+========================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.header p {
+    color: #777;
+    font-size: 16px;
+}
+
+
+/* =========================
+   FILTRES
+========================= */
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.filter-btn {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #333;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.filter-btn:hover {
+    background: #dce8ff;
+}
+
+.filter-btn.active {
+    background: #2563eb;
+    color: white;
+}
+
+.filter-btn span {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   GALERIE RESPONSIVE
+========================= */
+
+.gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 22px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+
+/* =========================
+   IMAGES
+========================= */
+
+.gallery-item {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: white;
+
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.gallery-item.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+.gallery-item.hidden {
+
+    display: none;
+
+}
+
+.gallery-item img {
+
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: cover;
+
+    display: block;
+
+    cursor: pointer;
+
+    transition: transform 0.5s ease;
+
+}
+
+.gallery-item:hover img {
+
+    transform: scale(1.08);
+
+}
+
+
+/* =========================
+   ANIMATION CHARGEMENT
+========================= */
+
+.loader {
+
+    display: none;
+
+    text-align: center;
+
+    margin: 50px auto;
+
+}
+
+.loader.show-loader {
+
+    display: block;
+
+}
+
+.spinner {
+
+    width: 50px;
+
+    height: 50px;
+
+    border: 5px solid #ddd;
+
+    border-top: 5px solid #2563eb;
+
+    border-radius: 50%;
+
+    animation: tourner 1s linear infinite;
+
+    margin: auto;
+
+}
+
+.loader p {
+
+    margin-top: 15px;
+
+    color: #777;
+
+}
+
+@keyframes tourner {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox {
+
+    display: none;
+
+    position: fixed;
+
+    z-index: 1000;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.94);
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.lightbox img {
+
+    max-width: 80%;
+
+    max-height: 80%;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+    animation: zoom 0.3s ease;
+
+}
+
+@keyframes zoom {
+
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
+   BOUTONS LIGHTBOX
+========================= */
+
+.close {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 35px;
+
+    color: white;
+
+    font-size: 45px;
+
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+.prev,
+.next {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: white;
+
+    font-size: 35px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border: none;
+
+    padding: 15px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+}
+
+.prev {
+    left: 25px;
+}
+
+.next {
+    right: 25px;
+}
+
+.close:hover,
+.prev:hover,
+.next:hover {
+    color: #60a5fa;
+}
+
+
+/* COMPTEUR LIGHTBOX */
+
+#image-counter {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    color: white;
+
+    font-size: 16px;
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .gallery {
+        grid-template-columns:
+            repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .gallery-item img {
+        height: 220px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .lightbox img {
+        max-width: 85%;
+        max-height: 70%;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-btn {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    .gallery-item img {
+        height: 250px;
+    }
+
+}

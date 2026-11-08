@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Galerie d'images</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- EN-TÊTE -->
+    <header class="header">
+        <h1>Ma galerie d'images</h1>
+        <p>Découvrez notre collection de photographies</p>
+    </header>
+
+
+    <!-- BOUTONS DE FILTRAGE -->
+    <section class="filters">
+
+        <button class="filter-btn active" data-filter="all">
+            Tout <span id="count-all">0</span>
+        </button>
+
+        <button class="filter-btn" data-filter="nature">
+            Nature <span id="count-nature">0</span>
+        </button>
+
+        <button class="filter-btn" data-filter="personnes">
+            Personnes <span id="count-personnes">0</span>
+        </button>
+
+        <button class="filter-btn" data-filter="abstrait">
+            Abstrait <span id="count-abstrait">0</span>
+        </button>
+
+    </section>
+
+
+    <!-- CHARGEMENT -->
+    <div id="loader" class="loader">
+
+        <div class="spinner"></div>
+
+        <p>Chargement des images...</p>
+
+    </div>
+
+
+    <!-- GALERIE -->
+    <main class="gallery" id="gallery">
+
+    </main>
+
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+
+        <button class="close" aria-label="Fermer">&times;</button>
+
+        <button class="prev" aria-label="Image précédente">&#10094;</button>
+
+        <img id="lightbox-img" src="" alt="Image agrandie">
+
+        <button class="next" aria-label="Image suivante">&#10095;</button>
+
+        <p id="image-counter"></p>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
