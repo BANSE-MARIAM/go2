@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartes de prix</title>
+  <style>
+    :root {
+      --bg: #eef2f7;
+      --card: #ffffff;
+      --text: #1c2430;
+      --muted: #5c6b7a;
+      --line: #e6ebf1;
+      --price: #0f9f6e;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --shadow: 0 12px 32px rgba(28, 36, 48, 0.08);
+      --shadow-hover: 0 20px 44px rgba(28, 36, 48, 0.16);
+      --radius: 18px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 2.5rem 1rem;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .pricing-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 1.5rem;
+      width: min(100%, 1080px);
+    }
+
+    .pricing {
+      width: min(100%, 320px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem 1.5rem 1.5rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .pricing:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .title {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .price {
+      margin: 0.85rem 0 1.35rem;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--price);
+    }
+
+    .features {
+      list-style: none;
+      width: 100%;
+      margin: 0 0 1.5rem;
+      padding: 0;
+    }
+
+    .features li {
+      padding: 0.8rem 0.25rem;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .features li:last-child {
+      border-bottom: none;
+    }
+
+    .btn {
+      width: 100%;
+      margin-top: auto;
+      padding: 0.85rem 1.25rem;
+      border: none;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #fff;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 3px;
+    }
+
+    .status {
+      min-height: 1.5rem;
+      margin: 0;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pricing,
+      .btn {
+        transition: none;
+      }
+
+      .pricing:hover,
+      .btn:active {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="pricing-grid" id="offers"></div>
+  <p class="status" id="status" role="status"></p>
+
+  <script>
+    /**
+     * Carte de prix réutilisable.
+     * Construit un <article> et le renvoie, prêt à être inséré dans la page.
+     *
+     * @param {Object} options
+     * @param {string} options.title - Nom du forfait.
+     * @param {string} options.price - Prix affiché (texte libre, ex. "9,99 $/mois").
+     * @param {string[]} options.features - Liste des avantages.
+     * @param {string} options.buttonText - Libellé du bouton.
+     * @param {function} [options.onSelect] - Appelé au clic, avec les données du forfait.
+     * @returns {HTMLElement}
+     */
+    function PricingCard({ title, price, features, buttonText, onSelect }) {
+      const card = document.createElement("article");
+      card.className = "pricing";
+
+      const titleEl = document.createElement("h2");
+      titleEl.className = "title";
+      titleEl.textContent = title;
+
+      const priceEl = document.createElement("p");
+      priceEl.className = "price";
+      priceEl.textContent = price;
+
+      const list = document.createElement("ul");
+      list.className = "features";
+
+      (Array.isArray(features) ? features : []).forEach((feature) => {
+        const item = document.createElement("li");
+        item.textContent = feature;
+        list.appendChild(item);
+      });
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "btn";
+      button.textContent = buttonText;
+      button.addEventListener("click", () => {
+        if (typeof onSelect === "function") {
+          onSelect({ title, price, features, buttonText });
+        }
+      });
+
+      card.append(titleEl, priceEl, list, button);
+      return card;
+    }
+
+    const offers = document.querySelector("#offers");
+    const status = document.querySelector("#status");
+
+    const plans = [
+      {
+        title: "Forfait de base",
+        price: "9,99 $/mois",
+        features: [
+          "1 Go de stockage",
+          "Assistance de base",
+          "Toutes les fonctionnalités principales"
+        ],
+        buttonText: "Démarrer l'essai"
+      },
+      {
+        title: "Forfait Pro",
+        price: "19,99 $/mois",
+        features: [
+          "50 Go de stockage",
+          "Assistance prioritaire",
+          "Export des données"
+        ],
+        buttonText: "Choisir Pro"
+      },
+      {
+        title: "Forfait Équipe",
+        price: "49,99 $/mois",
+        features: [
+          "Stockage illimité",
+          "Assistance dédiée",
+          "Gestion des rôles"
+        ],
+        buttonText: "Contacter l'équipe"
+      }
+    ];
+
+    plans.forEach((plan) => {
+      offers.appendChild(PricingCard({
+        ...plan,
+        onSelect(selected) {
+          status.textContent = "Forfait sélectionné : " + selected.title + " — " + selected.price;
+        }
+      }));
+    });
+  </script>
+</body>
+</html>
